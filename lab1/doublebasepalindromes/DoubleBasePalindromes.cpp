@@ -1,17 +1,8 @@
+//
+// Created by maciej on 03.03.18.
+//
 #include <iostream>
-#include <cstdint>
-
-uint64_t DoubleBasePalindromes(int max_value_execursive);
-bool IsBinaryPalindrome(int value);
-bool IsDecimalPalindrome(int value);
-
-int main() {
-    int n = 1000000;
-    uint64_t flag;
-    flag = DoubleBasePalindromes(n);
-    std::cout << std::endl;
-    return 0;
-}
+#include "DoubleBasePalindromes.h"
 
 uint64_t DoubleBasePalindromes(int n){
     int i;

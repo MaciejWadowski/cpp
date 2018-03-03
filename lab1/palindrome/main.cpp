@@ -1,7 +1,5 @@
 #include <iostream>
-#include <string>
-
-bool is_palindrome(std::string str);
+#include "Palindrome.h"
 
 int main() {
     int choice;
@@ -19,14 +17,4 @@ int main() {
         else std::cout << word << " isn't palindorme.\n\n";
     }
     return 0;
-}
-
-bool is_palindrome(std::string str){
-    int size = str.size();
-    std::string str2 = str;
-    int i;
-    for ( i = 0 ; i <= size; i++)
-        str2[i] = str[size-i-1];
-    if (str2 == str) return true;
-    else return false;
 }

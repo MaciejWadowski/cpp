@@ -17,6 +17,16 @@ public:
         ws = nullptr;
         rozmiar = 0;
     }
+    Macierze(int _rozmiar){
+        rozmiar = _rozmiar;
+        ws = new double[rozmiar*rozmiar];
+        for(int i = 0 ; i< rozmiar*rozmiar; i++) ws[i] = 0;
+    }
+    Macierze(int _rozmiar, int wartosc){
+        rozmiar = _rozmiar;
+        ws = new double[rozmiar*rozmiar];
+        for(int i = 0; i<rozmiar*rozmiar; i++) ws[i] = wartosc;
+    }
     Macierze(const Macierze &o1){  // kopiujacy konstruktor, potrzebny przy dodawaniu
         rozmiar = o1.rozmiar;
         ws = new double[o1.rozmiar*o1.rozmiar];
@@ -34,12 +44,11 @@ public:
                 this->rozmiar = o1.rozmiar;            //bez tego wyciek pamieci(jak na lekci z dwoma destruktorami)
                 for (int i = 0; i < o1.rozmiar * o1.rozmiar; i++) this->ws[i] = o1.ws[i];
             } else if (this->rozmiar != o1.rozmiar) {  // jezeli rozne rozmiary to redefiniuje
-                delete [] this->ws;
+                delete[] this->ws;
                 this->ws = new double[o1.rozmiar * o1.rozmiar];
                 this->rozmiar = o1.rozmiar;
                 for (int i = 0; i < o1.rozmiar * o1.rozmiar; i++) this->ws[i] = o1.ws[i];
             }
-            return *this;
         }
         return *this;
     }
@@ -49,10 +58,64 @@ public:
         }
         else{
             Macierze wynik = Macierze(*this);  // kopia macierzy po lewej stronie
-            for( int i = 0; i < o1.rozmiar*o1.rozmiar; i++) this->ws[i] += o1.ws[i];
-            return *this;  //return by value
+            for( int i = 0; i < o1.rozmiar*o1.rozmiar; i++) wynik.ws[i] += o1.ws[i];
+            return wynik;  //return by value
         }
     }
+    Macierze operator - (const Macierze &o1) {
+        if (rozmiar != o1.rozmiar) return *this;
+        Macierze wynik = Macierze(*this);
+        for (int i = 0; i < rozmiar * rozmiar; i++) wynik.ws[i] -= o1.ws[i];
+        return wynik;
+    }
+    Macierze operator * (const Macierze &o1) {
+        if (rozmiar != o1.rozmiar) return *this;
+        Macierze wynik = Macierze(*this);
+        int rows = 0, count = 0, result = 0, column = 0;
+        while (true){
+            for(int i = rozmiar*rows, j = column; i <rozmiar*rows + rozmiar; i++, j += rozmiar) result += ws[i]*o1.ws[j];
+            column++;
+            wynik.ws[count] = result;
+            result = 0;
+            count++;
+            if(column == rozmiar) {
+                rows++;
+                column = 0;
+            }
+            if (rows == rozmiar) break;
+        }
+        return wynik;
+    }
+    bool operator == (const Macierze& s1){
+        if (rozmiar != s1.rozmiar) return false;
+        for(int i = 0; i < rozmiar*rozmiar; i++)
+            if(ws[i] != s1.ws[i]) return false;
+        return true;
+    }
+
+    bool operator != (const Macierze& s1){
+        if (rozmiar != s1.rozmiar) return true;
+        for(int i = 0; i < rozmiar*rozmiar; i++)
+            if(ws[i] != s1.ws[i]) return true;
+        return false;
+    }
+
+    bool operator > (const Macierze &s1){
+        double wynik1 = 0, wynik2 = 0;
+        for(int i = 0 ; i< rozmiar*rozmiar; i++) wynik1 += ws[i];
+        for(int i = 0; i < s1.rozmiar*s1.rozmiar; i++) wynik2 += s1.ws[i];
+        if ( wynik1 > wynik2) return true;
+        else return false;
+    }
+    bool operator < (const Macierze &s1){
+        double wynik1 = 0, wynik2 = 0;
+        for(int i = 0 ; i< rozmiar*rozmiar; i++) wynik1 += ws[i];
+        for(int i = 0; i < s1.rozmiar*s1.rozmiar; i++) wynik2 += s1.ws[i];
+        if ( wynik1 < wynik2) return true;
+        else return false;
+    }
+
+
 };
 
 istream	&operator >> (istream &s1, Macierze &o1){
@@ -76,22 +139,10 @@ ostream &operator << (ostream &s1, Macierze &o1){
 }
 
 int main(){
-    Macierze zm;
+    Macierze zm, zm2(3,3), zm3;
     cin >> zm;
     cout << zm;
-    zm.~Macierze();
-    zm.~Macierze();
-    Macierze o1, o2, o3, o4;
-    cin >> o1;
-    cout << o1;
-    cin >> o2;
-    cout << o2;
-    o3 = o2 = o1;
-    cout << o3 << o2 << o1;
-    o3 + o2;
-    cout << o3;
-    cout << o2;
-    o4 = o1 + o2;
-    cout << o4;
+    cout << zm2;
+    zm3 = zm*zm2;
+    cout << zm3;
     return 0;
-}

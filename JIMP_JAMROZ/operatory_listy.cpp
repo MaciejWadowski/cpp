@@ -41,7 +41,7 @@ public:
             class Element *toDelete;
             toDelete = head;
             head = head->next;
-            delete[] toDelete;
+            delete toDelete;
         }
     }
     List &operator = (const class List &o1){
@@ -61,6 +61,31 @@ public:
         }
         prev->next = nullptr;
         return *this;
+    }
+    bool operator == (class List &o1){
+        Element *i = this->head;
+        Element *j = o1.head;
+        if (i == j) return true;
+        do{
+            if(i->wartosc != j->wartosc) return false;
+            i = i->next;
+            j = j->next;
+        }while(i && j);
+        if(!i && !j) return true;
+        else return false;
+    }
+
+    bool operator != (class List &o1){
+        Element *i = this->head;
+        Element *j = o1.head;
+        if(i == j) return false;
+        do{
+            if(i->wartosc != j->wartosc) return true;
+            i = i->next;
+            j = j->next;
+        }while(i && j);
+        if (!i && !j) return false;
+        else return true;
     }
 };
 istream &operator >> (istream &s1, class List &o1){
@@ -96,7 +121,10 @@ int main() {
     class List list2(list), list3;
     cout << list2;
     list3 = list2;
+    if(list3 == list2) cout << "WOW\n";
     cin >> list3;
+    if(list3 != list2) cout << "WOW2\n";
     cout << list3 << endl;
+    cout << list2;
     return 0;
 }

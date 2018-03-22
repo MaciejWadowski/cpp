@@ -9,6 +9,6 @@ int main(){
     int result;
     int k = 2;
     result = GreatestProduct(tab, k);
-    cout << k << endl;
+    cout << result << endl;
     return 0;
 }

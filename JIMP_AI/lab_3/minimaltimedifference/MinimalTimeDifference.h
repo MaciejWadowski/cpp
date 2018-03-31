@@ -1,0 +1,14 @@
+//
+// Created by maciej on 31.03.18.
+//
+
+#ifndef JIMP_EXERCISES_MINIMALTIMEDIFFERENCE_H
+#define JIMP_EXERCISES_MINIMALTIMEDIFFERENCE_H
+
+
+class MinimalTimeDifference {
+
+};
+
+
+#endif //JIMP_EXERCISES_MINIMALTIMEDIFFERENCE_H

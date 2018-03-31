@@ -5,35 +5,32 @@
 #include "XorCypherBreaker.h"
 std::string XorCypherBreaker(const std::vector<char> &cryptogram, int key_length, const std::vector<std::string> &dictionary) {
     std::string word = "";
-    int tab_a_z[26];
-    int count = 0;
-    for(int i = 0; i < 26; i++) tab_a_z[i] = 0;
+    std::string result_key = "";
+    char char_to_cipher;
+    int words_count = 0, max_count = 0;
+    for(int i = 'a'; i <= 'z'; i++)
+           for(int j = 'a'; j <= 'z'; j++)
+               for(int k = 'a'; k <= 'z'; k++){
 
-    for(int i = 'a'; i <= 'z'; i++){
-        for(int j = 0; j < cryptogram.size(); j++){
-            if(isspace(char(cryptogram[j]^i))){
-                if (std::find(dictionary.begin(),dictionary.end(), word) != dictionary.end())tab_a_z[count]++;
-                word = "";
-            }
-            else word += char(cryptogram[j]^i);
-        }
-        word = "";
-        count++;
-    }
-    std::string result = "";
-    int max = 0, max_index = 0;
-    for(int j = 0; j < key_length; j++) {
-        for (int i = 0; i < 26; i++) {
-            if (tab_a_z[i] > max) {
-                max = tab_a_z[i];
-                max_index = i;
-                std::cout << tab_a_z[i] << " ";
-            }
-        }
-        result += char(int('a')+max_index);
-        tab_a_z[max_index] = 0;
-        max = 0;
-        max_index = 0;
-    }
-    return result;
+                   char key[] = {i, j, k};
+
+                   for(int l = 0; l < cryptogram.size(); l++){
+                       char_to_cipher = char(cryptogram[l]^int(key[l%3]));
+
+                       if(isspace(char_to_cipher)) {
+                           if (find(dictionary.begin(), dictionary.end(), word) != dictionary.end()) words_count++;
+                           word = "";
+                       }
+                       else word += char_to_cipher;
+                   }
+
+                   if(words_count > max_count) {
+                       max_count = words_count;
+                       result_key = "";
+                       for(auto c: key) result_key += c;
+                   }
+                   words_count = 0;
+               }
+    return result_key;
+
 }

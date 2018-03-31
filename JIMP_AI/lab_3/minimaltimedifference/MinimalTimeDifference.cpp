@@ -7,30 +7,25 @@
 using std::string;
 using std::vector;
 using std::regex;
+using std::smatch;
 
 namespace minimaltimedifference{
 
     unsigned int ToMinutes(string time_HH_MM){
-        if (time_HH_MM.size() == 4){
-            char hours = time_HH_MM[0];
-            string minutes = time_HH_MM.substr(2, 4);
-            unsigned int hour, minut;
+        smatch matches;
+        regex pattern {R"((\d{1,2}):(\d{2}))"};
+        if(regex_match(time_HH_MM, matches, pattern)){
+            int hours, minutes;
+            string hour_str = matches[1];
+            string minutes_str = matches[2];
+            if(hour_str.size() == 1) hours = int(hour_str[0]-'0');
+            else hours = int(hour_str[0]-'0')*10 + int(hour_str[1]-'0');
+            minutes = int(minutes_str[0]-'0')*10 + int(minutes_str[1] -'0');
 
-            hour = int(hours - '0');
-            minut = int(minutes[0] - '0') * 10 + int(minutes[1] - '0');
-
-            return hour*60 + minut;
+            return hours*60 + minutes;
         }
-        else {
-            string hours = time_HH_MM.substr(0, 2);
-            string minutes = time_HH_MM.substr(3, 5);
-            unsigned int hour, minut;
 
-            hour = int(hours[0] - '0') * 10 + int(hours[1] - '0');
-            minut = int(minutes[0] - '0') * 10 + int(minutes[1] - '0');
-
-            return hour * 60 + minut;
-        }
+        return 0;
     }
 
     unsigned int MinimalTimeDifference(vector<string> times){
@@ -41,10 +36,11 @@ namespace minimaltimedifference{
             for(int j = i; j < times.size() - 1; j++){
                 unsigned int first_minutes = ToMinutes(times[i]);
                 unsigned int second_minutes = ToMinutes(times[j+1]);
-                std::cout << first_minutes << " " << second_minutes << std::endl;
                 result = abs(first_minutes - second_minutes);
                 if(result < min_minutes ) min_minutes = result;
-                result = abs(second_minutes - abs((max_minutes - first_minutes)));
+                result = abs(second_minutes + abs((max_minutes - first_minutes)));
+                if(result < min_minutes) min_minutes = result;
+                result = abs(first_minutes + abs((max_minutes - second_minutes)));
                 if(result < min_minutes) min_minutes = result;
             }
         }

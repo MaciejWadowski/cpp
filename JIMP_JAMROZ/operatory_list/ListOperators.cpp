@@ -34,8 +34,8 @@ List::~List() {
 
 List &List::operator = (const class List &o1){
     if(o1.head == this->head) return *this;
-    if(o1.head == nullptr && this->head == nullptr)return *this;
-    if(o1.head == nullptr) {
+    if((&o1 == nullptr && this == nullptr)||(o1.head == nullptr && this->head == nullptr))return *this;
+    if(o1.head == nullptr || &o1 == nullptr) {
         this->~List();
         return *this;
     }

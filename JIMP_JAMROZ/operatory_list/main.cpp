@@ -12,7 +12,6 @@ int main() {
     cout << list3 << endl;
     list = list2 + list5;
     cout << list << endl;
-    list = list4 + list5;
-    cout << list << "nothing" << endl;
+    cout << "nothing";
     return 0;
 }

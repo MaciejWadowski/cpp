@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Maciej/CLionProjects/operatory_list/ListOperators.cpp" "C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/CMakeFiles/operatory_list.dir/ListOperators.cpp.obj"
-  "C:/Users/Maciej/CLionProjects/operatory_list/main.cpp" "C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/CMakeFiles/operatory_list.dir/main.cpp.obj"
+  "/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/ListOperators.cpp" "/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/CMakeFiles/operatory_list.dir/ListOperators.cpp.o"
+  "/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/main.cpp" "/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/CMakeFiles/operatory_list.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -8,88 +8,92 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug"/>
+				<Option working_dir="/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug"/>
+				<Option working_dir="/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="operatory_list">
-				<Option output="C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/operatory_list.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.2.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.2.0/include/c++"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.2.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.2.0/include/c++/i686-w64-mingw32"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.2.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.2.0/include/c++/backward"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.2.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.2.0/include"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.2.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.2.0/include-fixed"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.2.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.2.0/../../../../i686-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 operatory_list"/>
-					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="operatory_list/fast">
-				<Option output="C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/operatory_list.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.2.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.2.0/include/c++"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.2.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.2.0/include/c++/i686-w64-mingw32"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.2.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.2.0/include/c++/backward"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.2.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.2.0/include"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.2.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.2.0/include-fixed"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.2.0-posix-dwarf-rt_v5-rev1/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.2.0/../../../../i686-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 operatory_list/fast"/>
-					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug"/>
+				<Option working_dir="/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Maciej/CLionProjects/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="operatory_list">
+				<Option output="/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/operatory_list" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 operatory_list"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="operatory_list/fast">
+				<Option output="/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/operatory_list" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 operatory_list/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Maciej/CLionProjects/operatory_list/ListOperators.cpp">
+		<Unit filename="/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/ListOperators.cpp">
 			<Option target="operatory_list"/>
 		</Unit>
-		<Unit filename="C:/Users/Maciej/CLionProjects/operatory_list/ListOperators.h">
+		<Unit filename="/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/ListOperators.h">
 			<Option target="operatory_list"/>
 		</Unit>
-		<Unit filename="C:/Users/Maciej/CLionProjects/operatory_list/main.cpp">
+		<Unit filename="/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/main.cpp">
 			<Option target="operatory_list"/>
 		</Unit>
-		<Unit filename="C:/Users/Maciej/CLionProjects/operatory_list/CMakeLists.txt">
+		<Unit filename="/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

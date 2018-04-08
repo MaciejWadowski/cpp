@@ -1,3 +1,0 @@
-/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/wadziuxxx/Documents/GIT/C-/JIMP_JAMROZ/operatory_list/cmake-build-debug/CMakeFiles/operatory_list.dir

@@ -1,0 +1,3 @@
+C:/Users/Maciej/CLionProjects/macierze/cmake-build-debug/CMakeFiles/macierze.dir
+C:/Users/Maciej/CLionProjects/macierze/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Maciej/CLionProjects/macierze/cmake-build-debug/CMakeFiles/rebuild_cache.dir

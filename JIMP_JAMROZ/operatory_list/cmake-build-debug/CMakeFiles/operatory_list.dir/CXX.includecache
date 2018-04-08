@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Maciej/CLionProjects/operatory_list/ListOperators.cpp
+ListOperators.h
+C:/Users/Maciej/CLionProjects/operatory_list/ListOperators.h
+
+C:/Users/Maciej/CLionProjects/operatory_list/ListOperators.h
+iostream
+-
+
+C:/Users/Maciej/CLionProjects/operatory_list/main.cpp
+ListOperators.h
+C:/Users/Maciej/CLionProjects/operatory_list/ListOperators.h
+

@@ -30,5 +30,10 @@ ForwardList *PushFront(ForwardList *list, int value) {
 }
 
 void Append(ForwardList *list, ForwardList *tail){
-
+    ForwardList *i = list;
+    if(!list) list = tail;
+    else{
+        while(i->next) i= i->next;
+        i->next = tail;
+    }
 }

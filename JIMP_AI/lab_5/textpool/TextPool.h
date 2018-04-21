@@ -9,9 +9,21 @@
 #include <string>
 #include <experimental/string_view>
 #include <set>
+#include <vector>
+#include <algorithm>
+
 namespace pool{
     class TextPool {
-
+    public:
+        TextPool();
+        ~TextPool() = default;
+        TextPool(std::initializer_list<std::string> words);
+        TextPool &operator = (TextPool &&other);
+        TextPool (TextPool &&other) noexcept ;
+        std::experimental::string_view Intern(const std::string &str);
+        size_t StoredStringCount() const;
+    private:
+        std::vector <std::string> word;
     };
 
 }

@@ -7,6 +7,5 @@
 using namespace memorychunk;
 
 int main(){
-
     return 0;
 }

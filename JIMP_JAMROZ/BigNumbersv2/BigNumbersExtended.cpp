@@ -4,12 +4,9 @@
 
 #include "BigNumbers.h"
 
-void fillWithZero(char *container){
-    int i = 0;
-    while(container[i] != '\0') {
+void fillWithZero(char *container, int size){
+    for(int i = 0; i < size;i++)
         container[i] = '0';
-        i++;
-    }
 }
 
 
@@ -116,12 +113,15 @@ BigNumbersExtended BigNumbersExtended::operator*(const BigNumbersExtended &o1) c
 
 
     int tmp = 0, toAdd = 0, currentNumberLength = 0, size = strlen(number_), secSize = strlen(o1.number_);
+
     char currentNumber[size+secSize+1], sum[size+secSize+1];
 
-    sum[size+secSize] = currentNumber[size+secSize] =  '\0';
-    fillWithZero(sum);
+    fillWithZero(sum, size + secSize);
+    currentNumber[size+secSize] = sum[size+secSize] = '\0';
+
     for(int i = 0; i < secSize; i++){
-        fillWithZero(currentNumber);
+        fillWithZero(currentNumber,size + secSize);
+
         for(int j = 0; j < size; j++){
             tmp = (number_[size - j - 1] - '0')*(o1.number_[secSize - i - 1] - '0') + toAdd;
 
@@ -144,14 +144,14 @@ BigNumbersExtended BigNumbersExtended::operator*(const BigNumbersExtended &o1) c
         }
 
         std::reverse(currentNumber, currentNumber + strlen(currentNumber));
-        std::cout << currentNumber << ", ";
+
         for(int j = size + secSize - i - 1; j >= size + secSize - currentNumberLength - i; j--){
             tmp = currentNumber[j] - '0' + sum[j] - '0' + toAdd;
-            if(tmp > 9){                           // size = strlen(pierwszy_string), secSize = strlen(drugi string)
-                sum[j] = char(tmp + '0' - 10);     //currentNumberLength - dlugosc aktualnej liczby w currentNumber(defaultowo wypelniona cala tablica zerami)
-                toAdd = 1;                         //char sum[size+secSize+1], currentNumber[size+secSize+1] <- tak zapisane tablice z liczbami,
-            }                                      // w miejscue [size+secSize] znajduje sie '\0'
-                                                   // iterator "i" oznacza jak gleboko jestesmy w dodawaniu liczb(jak mnozenie pisemne, patrz output z konsoli)
+            if(tmp > 9){
+                sum[j] = char(tmp + '0' - 10);
+                toAdd = 1;
+            }
+
             else{
                 sum[j] = char(tmp + '0');
                 toAdd = 0;
@@ -162,7 +162,6 @@ BigNumbersExtended BigNumbersExtended::operator*(const BigNumbersExtended &o1) c
             toAdd = 0;
         }
         currentNumberLength = 0;
-        std::cout << sum << std::endl;
     }
 
     int zeroCount = 0;

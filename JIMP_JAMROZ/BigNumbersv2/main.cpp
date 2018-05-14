@@ -2,7 +2,7 @@
 #include "BigNumbers.h"
 
 int main() {
-    BigNumbersExtended o3{"3144"},o4{"9399"};
-    std::cout << o3*o4<<std::endl;
+    BigNumbersExtended o1{"9999"}, o2{"9999"};
+    std::cout << o1*o2;
     return 0;
 }

@@ -21,8 +21,8 @@ public:
     Value second;
     bool checked;
 private:
-    friend class Map;
-    friend class Iterator;
+    friend class Map<Key,Value>;
+    friend class Iterator<Key,Value>;
     Element<Key,Value> *parent;
     Element<Key,Value> *right;
     Element<Key,Value> *left;
@@ -32,18 +32,20 @@ template<class Key, class Value>
 class Iterator{
 public:
 
-    Iterator<Key,Value> ();
+    Iterator<Key,Value>();
 
     Iterator<Key,Value> (Element<Key,Value> *n);
 
+
     Iterator<Key,Value> &operator++();
 
-    bool operator != (Iterator<Key,Value> &o1);
+    bool operator != (const Iterator<Key,Value> &o1);
 
-    Iterator<Key,Value> *operator->();
+    Element<Key, Value> *operator->();
 
 private:
-    Iterator<Key,Value> nextIt();
+    Element<Key, Value> clear(Element<Key, Value> *it);
+    Element<Key, Value> *nextIt();
     Element<Key,Value> *it;
 };
 
@@ -61,10 +63,11 @@ public:
 
     Iterator<Key,Value> end();
 
-    void delocate(Element *toDelete);
+    void delocate(Element<Key,Value> *toDelete);
 
 private:
-    Element *root;
+    Element<Key,Value> *root;
+    void clear(Element<Key,Value> *it);
 };
 
 #endif //MAPTREE_MAP_H

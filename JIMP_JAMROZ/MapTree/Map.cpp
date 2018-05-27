@@ -35,7 +35,7 @@ void Map<Key, Value>::delocate(Element<Key, Value> *toDelete) {
 
 template<class Key, class Value>
 Value &Map<Key, Value>::operator[](const Key &key){
-    Element<Key,Value> *i = root, *new_element, *j = nullptr;
+    Element<Key,Value> *i = root, *newElement, *j = nullptr;
 
     while(i){
 
@@ -53,27 +53,27 @@ Value &Map<Key, Value>::operator[](const Key &key){
         }
     }
 
-    new_element = new Element<Key,Value>;
-    new_element->first = key;
-    new_element->left = nullptr;
-    new_element->right = nullptr;
+    newElement = new Element<Key,Value>;
+    newElement->first = key;
+    newElement->left = nullptr;
+    newElement->right = nullptr;
 
     if(!root)
-        root = new_element;
+        root = newElement;
 
     else{
 
-        new_element->parent = j;
+        newElement->parent = j;
 
         if(j->first > key)
-            j->left = new_element;
+            j->left = newElement;
 
         else
-            j->right = new_element;
+            j->right = newElement;
 
     }
 
-    return new_element->second;
+    return newElement->second;
 }
 
 template<class Key, class Value>
@@ -95,19 +95,25 @@ typename Map<Key,Value>::Iterator Map<Key, Value>::end() {
 }
 
 template<class Key, class Value>
-Element<Key, Value> * Map<Key,Value>::Iterator::nextIt() {
+Element<Key, Value> * Map<Key,Value>::Iterator::next() {
     if(currentElement->left && !currentElement->left->checked)
         return currentElement->left;
 
-    else if(currentElement->right && !currentElement->right->checked)
-        return currentElement->right;
+    else if(currentElement->right && !currentElement->right->checked){
+        Element<Key,Value> *n = currentElement->right;
+
+        while(n->left)
+            n=n->left;
+
+        return n;
+    }
 
     else if(currentElement->parent && !currentElement->parent->checked)
         return currentElement->parent;
 
     else if(currentElement->parent){
         currentElement = currentElement->parent;
-        return nextIt();
+        return next();
     }
 
     else{
@@ -118,7 +124,7 @@ Element<Key, Value> * Map<Key,Value>::Iterator::nextIt() {
 
 template<class Key, class Value>
 typename Map<Key,Value>::Iterator &Map<Key,Value>::Iterator::operator++() {
-    Element<Key,Value> *n = nextIt();
+    Element<Key,Value> *n = next();
     currentElement = n;
 
     if(currentElement)
@@ -128,8 +134,8 @@ typename Map<Key,Value>::Iterator &Map<Key,Value>::Iterator::operator++() {
 }
 
 template<class Key, class Value>
-bool Map<Key,Value>::Iterator::operator!=(const Iterator &o1) {
-    return this->currentElement != o1.currentElement;
+bool Map<Key,Value>::Iterator::operator!=(const Iterator &o1)const {
+    return currentElement != o1.currentElement;
 }
 
 template<class Key, class Value>
@@ -146,14 +152,13 @@ Element<Key,Value> *Map<Key,Value>::Iterator::operator->() {
 template<class Key, class Value>
 void Map<Key,Value>::Iterator::clear(Element<Key, Value> *element) {
 
-    if(element->left && !element->left->checked)
+    if(element->left && element->left->checked)
         clear(element->left);
 
-    if(element->right && !element->right->checked)
+    if(element->right && element->right->checked)
         clear(element->right);
 
-    if(element)
-        element->checked = false;
+    element->checked = false;
 }
 
 template<class Key, class Value>
@@ -166,7 +171,7 @@ Map<Key,Value>::Iterator::Iterator(Element<Key, Value> *n) {
 
 template<class Key, class Value>
 typename Map<Key,Value>::Iterator Map<Key, Value>::Iterator::operator++(int) {
-    Element<Key,Value> *n = nextIt();
+    Element<Key,Value> *n = next();
     currentElement = n;
 
     if(currentElement)
@@ -176,17 +181,21 @@ typename Map<Key,Value>::Iterator Map<Key, Value>::Iterator::operator++(int) {
 }
 
 template<class Key, class Value>
+bool Map<Key, Value>::Iterator::operator==(const Iterator &o1) const {
+    return currentElement == o1.currentElement;
+}
+
+template<class Key, class Value>
 void Map<Key, Value>::clear(Element<Key, Value> *element) {
-    if(!element || element->checked)
+    if(!element || !element->checked)
         return;
 
-    if(element->left && !element->left->checked);
+    if(element->left && element->left->checked);
             clear(element->left);
 
-    if(element->right && !element->right->checked)
+    if(element->right && element->right->checked)
             clear(element->right);
 
-    if(element)
-        element->checked = false;
+    element->checked = false;
 };
 

@@ -10,7 +10,6 @@
 template <typename Key, typename Value>
 class Map;
 
-class Iterator;
 
 template <typename Key, typename Value>
 class Element{
@@ -58,18 +57,19 @@ public:
 
     Iterator (Element<Key,Value> *n);
 
-
     Iterator &operator++();
 
     Iterator operator++(int);
 
-    bool operator != (const Iterator&o1);
+    bool operator != (const Iterator&o1)const;
+
+    bool operator == (const Iterator&o1)const;
 
     Element<Key,Value> *operator->();
 
 private:
     void clear(Element<Key,Value> *element);
-    Element<Key,Value> *nextIt();
+    Element<Key,Value> *next();
     Element<Key,Value> *currentElement;
 };
 

@@ -18,7 +18,7 @@ int main() {
     o1[225] = " wowowo";
     o1[0] = " wowowo";
 
-    for(Map<int,std::string>::Iterator i = o1.begin(); i!= o1.end(); i++) {
+    for(Map<int,std::string>::Iterator i = o1.begin(); i!= o1.end(); ++i) {
         std::cout << i->first << "-- " << i->second << '\n';
     }
     return 0;

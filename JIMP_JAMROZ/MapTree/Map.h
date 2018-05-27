@@ -18,7 +18,6 @@ public:
     Key first;
     Value second;
 private:
-    bool checked;
     friend class Map<Key,Value>::Iterator;
     friend class Map<Key,Value>;
     Element<Key,Value> *parent;
@@ -46,7 +45,6 @@ public:
 private:
     void delocate(Element<Key,Value> *toDelete);
     Element<Key,Value> *root;
-    void clear(Element<Key,Value> *element);
 };
 
 template<typename Key, typename Value>
@@ -68,8 +66,6 @@ public:
     Element<Key,Value> *operator->();
 
 private:
-    void clear(Element<Key,Value> *element);
-    Element<Key,Value> *next();
     Element<Key,Value> *currentElement;
 };
 

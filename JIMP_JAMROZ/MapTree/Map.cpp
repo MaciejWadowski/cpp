@@ -39,9 +39,8 @@ Value &Map<Key, Value>::operator[](const Key &key){
 
     while(i){
 
-        if(key == i->first){
+        if(key == i->first)
             return i->second;
-        }
 
         else if(key < i->first) {
             j = i;
@@ -63,6 +62,7 @@ Value &Map<Key, Value>::operator[](const Key &key){
         root = new_element;
 
     else{
+
         new_element->parent = j;
 
         if(j->first > key)
@@ -77,7 +77,7 @@ Value &Map<Key, Value>::operator[](const Key &key){
 }
 
 template<class Key, class Value>
-Iterator<Key, Value> Map<Key, Value>::begin() {
+typename Map<Key,Value>::Iterator Map<Key, Value>::begin() {
     Element<Key,Value> *n = root;
     Element<Key,Value> *it = root;
 
@@ -86,97 +86,107 @@ Iterator<Key, Value> Map<Key, Value>::begin() {
     while(n->left)
         n = n->left;
 
-    return Iterator<Key,Value>{n};
+    return Iterator{n};
 }
 
 template<class Key, class Value>
-Iterator<Key, Value> Map<Key, Value>::end() {
-    return Iterator<Key,Value>{nullptr};
+typename Map<Key,Value>::Iterator Map<Key, Value>::end() {
+    return Iterator{nullptr};
 }
 
-
-
-
 template<class Key, class Value>
-Element<Key, Value> * Iterator<Key, Value>::nextIt() {
-    if(it->left && !it->left->checked)
-        return it->left;
+Element<Key, Value> * Map<Key,Value>::Iterator::nextIt() {
+    if(currentElement->left && !currentElement->left->checked)
+        return currentElement->left;
 
-    else if(it->right && !it->right->checked)
-        return it->right;
+    else if(currentElement->right && !currentElement->right->checked)
+        return currentElement->right;
 
-    else if(it->parent && !it->parent->checked){
-        return it->parent;
-    }
+    else if(currentElement->parent && !currentElement->parent->checked)
+        return currentElement->parent;
 
-    else if(it->parent){
-        it = it->parent;
+    else if(currentElement->parent){
+        currentElement = currentElement->parent;
         return nextIt();
     }
+
     else{
-        clear(it);
+        clear(currentElement);
         return nullptr;
     }
 }
 
 template<class Key, class Value>
-Iterator<Key, Value> &Iterator<Key,Value>::operator++() {
+typename Map<Key,Value>::Iterator &Map<Key,Value>::Iterator::operator++() {
     Element<Key,Value> *n = nextIt();
-    it = n;
-    if(it)
-        it->checked = true;
+    currentElement = n;
+
+    if(currentElement)
+        currentElement->checked = true;
+
     return *this;
 }
 
 template<class Key, class Value>
-bool Iterator<Key, Value>::operator!=(const Iterator<Key, Value> &o1) {
-    return this->it != o1.it;
+bool Map<Key,Value>::Iterator::operator!=(const Iterator &o1) {
+    return this->currentElement != o1.currentElement;
 }
 
 template<class Key, class Value>
-Iterator<Key, Value>::Iterator() {
-    it = nullptr;
+Map<Key,Value>::Iterator::Iterator() {
+    currentElement = nullptr;
 }
 
 template<class Key, class Value>
-Element<Key,Value> *Iterator<Key,Value>::operator->() {
-    return it;
+Element<Key,Value> *Map<Key,Value>::Iterator::operator->() {
+    return currentElement;
 }
 
 
 template<class Key, class Value>
-Element<Key, Value> Iterator<Key, Value>::clear(Element<Key, Value> *it) {
+void Map<Key,Value>::Iterator::clear(Element<Key, Value> *element) {
 
-    if(it->left && !it->left->checked)
-        clear(it->left);
+    if(element->left && !element->left->checked)
+        clear(element->left);
 
-    if(it->right && !it->right->checked)
-        clear(it->right);
+    if(element->right && !element->right->checked)
+        clear(element->right);
 
-    if(it)
-        it->checked = false;
+    if(element)
+        element->checked = false;
 }
 
 template<class Key, class Value>
-Iterator<Key,Value>::Iterator(Element<Key, Value> *n) {
-        it = n;
-        if(it)
-            it->checked = true;
+Map<Key,Value>::Iterator::Iterator(Element<Key, Value> *n) {
+        currentElement = n;
+
+        if(currentElement)
+            currentElement->checked = true;
 }
 
 template<class Key, class Value>
-void Map<Key, Value>::clear(Element<Key, Value> *it) {
-    if(!it || it->checked)
+typename Map<Key,Value>::Iterator Map<Key, Value>::Iterator::operator++(int) {
+    Element<Key,Value> *n = nextIt();
+    currentElement = n;
+
+    if(currentElement)
+        currentElement->checked = true;
+
+    return *this;
+}
+
+template<class Key, class Value>
+void Map<Key, Value>::clear(Element<Key, Value> *element) {
+    if(!element || element->checked)
         return;
 
-    if(it->left)
-        if(!it->left->checked);
-            clear(it->left);
+    if(element->left && !element->left->checked);
+            clear(element->left);
 
-    if(it->right)
-        if(!it->right->checked)
-            clear(it->right);
+    if(element->right && !element->right->checked)
+            clear(element->right);
 
-    if(it)
-        it->checked = false;
+    if(element)
+        element->checked = false;
 };
+

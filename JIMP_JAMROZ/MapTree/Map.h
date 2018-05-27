@@ -9,49 +9,30 @@
 
 template <typename Key, typename Value>
 class Map;
-template <typename Key, typename Value>
+
 class Iterator;
 
-
-template <class Key, class Value>
+template <typename Key, typename Value>
 class Element{
 public:
     Element<Key,Value>();
     Key first;
     Value second;
-    bool checked;
 private:
+    bool checked;
+    friend class Map<Key,Value>::Iterator;
     friend class Map<Key,Value>;
-    friend class Iterator<Key,Value>;
     Element<Key,Value> *parent;
     Element<Key,Value> *right;
     Element<Key,Value> *left;
 };
 
-template<class Key, class Value>
-class Iterator{
-public:
 
-    Iterator<Key,Value>();
-
-    Iterator<Key,Value> (Element<Key,Value> *n);
-
-
-    Iterator<Key,Value> &operator++();
-
-    bool operator != (const Iterator<Key,Value> &o1);
-
-    Element<Key, Value> *operator->();
-
-private:
-    Element<Key, Value> clear(Element<Key, Value> *it);
-    Element<Key, Value> *nextIt();
-    Element<Key,Value> *it;
-};
-
-template <class Key, class Value>
+template <typename Key, typename Value>
 class Map {
 public:
+
+    class Iterator;
 
     Map<Key,Value>();
 
@@ -59,15 +40,38 @@ public:
 
     Value &operator[] (const Key &key);
 
-    Iterator<Key,Value> begin();
+    Iterator begin();
 
-    Iterator<Key,Value> end();
-
-    void delocate(Element<Key,Value> *toDelete);
+    Iterator end();
 
 private:
+    void delocate(Element<Key,Value> *toDelete);
     Element<Key,Value> *root;
-    void clear(Element<Key,Value> *it);
+    void clear(Element<Key,Value> *element);
 };
+
+template<typename Key, typename Value>
+class Map<Key,Value>::Iterator{
+public:
+
+    Iterator();
+
+    Iterator (Element<Key,Value> *n);
+
+
+    Iterator &operator++();
+
+    Iterator operator++(int);
+
+    bool operator != (const Iterator&o1);
+
+    Element<Key,Value> *operator->();
+
+private:
+    void clear(Element<Key,Value> *element);
+    Element<Key,Value> *nextIt();
+    Element<Key,Value> *currentElement;
+};
+
 
 #endif //MAPTREE_MAP_H

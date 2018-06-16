@@ -10,6 +10,7 @@
 template <typename Key, typename Value>
 class Map;
 
+enum class Color { black, red };
 
 template <typename Key, typename Value>
 class Element{
@@ -20,6 +21,7 @@ public:
 private:
     friend class Map<Key,Value>::Iterator;
     friend class Map<Key,Value>;
+    Color color;
     Element<Key,Value> *parent;
     Element<Key,Value> *right;
     Element<Key,Value> *left;
@@ -43,6 +45,9 @@ public:
     Iterator end();
 
 private:
+    void leftRotate(Element<Key,Value> *element);
+    void rightRotate(Element<Key,Value> *element);
+    void insertColorFixup(Element<Key,Value> *element);
     void delocate(Element<Key,Value> *toDelete);
     Element<Key,Value> *root;
 };
